@@ -25,20 +25,14 @@ public class UniversityController {
         List<University> universityList = universityRepository.findAll();
         return universityList;
     }
-
-
-    //CREATE
     @RequestMapping(value = "/university", method = RequestMethod.POST)
     public String addUniversity(@RequestBody UniversityDto universityDto) {
-        //YANGI ADDRES OCHIB OLDIK
         Address address = new Address();
         address.setCity(universityDto.getCity());
         address.setDistrict(universityDto.getDistrict());
         address.setStreet(universityDto.getStreet());
-        //YASAB OLGAN ADDRESS OBJECTIMIZNI DB GA SAQLADIK VA U BIZGA SAQLANGAN ADDRESSNI BERDI
         Address savedAddress = addressRepository.save(address);
 
-        //YANGI UNIVERSITET YASAB OLDIK
         University university = new University();
         university.setName(universityDto.getName());
         university.setAddress(savedAddress);

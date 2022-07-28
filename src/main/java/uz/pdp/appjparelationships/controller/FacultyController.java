@@ -52,7 +52,6 @@ public class FacultyController {
         return allByUniversityId;
     }
 
-
     @DeleteMapping("/{id}")
     public String deleteFaculty(@PathVariable Integer id) {
         try {
@@ -80,6 +79,5 @@ public class FacultyController {
         }
         return "Faculty not found";
     }
-
 
 }
